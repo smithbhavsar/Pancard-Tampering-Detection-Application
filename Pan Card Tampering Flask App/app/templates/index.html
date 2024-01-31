@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0" />
+  <title>Pan Card Tampering</title>
+
+  <!-- CSS -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" type="text/css" rel="stylesheet" media="screen,projection" />
+   <style>
+    body {
+      background-color: #fce4ec; /* Set a light pink background color */
+      margin-bottom: 100px; /* Adjust margin for the footer */
+    }
+
+    nav {
+      background-color: #2196f3 !important; /* Update the navbar color to blue */
+    }
+
+    nav a.brand-logo {
+      color: #fff; /* Update the logo text color */
+    }
+
+    .btn-large {
+      background-color: #e91e63; /* Update the button color to pink */
+    }
+
+    h5 {
+      color: #e91e63; /* Update the heading color to pink */
+    }
+
+    /* Add styles for the footer */
+    footer {
+      background-color: #2196f3; /* Update the footer background color to blue */
+      color: #fff;
+      text-align: center;
+      padding: 10px 0;
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+    }
+#index-banner {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 80vh;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Header/Banner Section -->
+  <div class="navbar-fixed">
+    <nav>
+      <div class="nav-wrapper">
+        <div class="container">
+          <a href="#" class="brand-logo">Pan Card Tampering Detection</a>
+        </div>
+      </div>
+    </nav>
+  </div>
+  <div class="section no-pad-bot" id="index-banner">
+    <div class="container">
+      <div class="row">
+        <form action='/' method="post" class="col s12" enctype="multipart/form-data">
+          <div class="row">
+            <div class="input-field col s12 m6">
+              <label for="file_upload"><b>Upload Pan Card Image</b></label><br>
+              <div class="file-field input-field">
+                <div class="btn" style="background-color: #3949ab;">
+                  <span>Browse</span>
+                  <input type="file" name="file_upload" id="file_upload" />
+                </div>
+                <div class="file-path-wrapper">
+                  <input class="file-path validate" type="text" placeholder="Upload file" name="file_name" id="file_name" />
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row center">
+            <button type="submit" class="btn-large">Check</button>
+          </div>
+        </form>
+
+        <div style="text-align: center; padding-top: 20px;">
+          <h5>{{pred}}</h5>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    Made by Smith Bhavsar
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <script type="text/javascript">
+    document.getElementById('file_upload').onchange = function () {
+      document.getElementById('file_name').value = this.value.slice(12, 100);
+    };
+  </script>
+</body>
+
+</html>
